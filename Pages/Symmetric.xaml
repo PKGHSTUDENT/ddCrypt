@@ -1,0 +1,173 @@
+﻿<Page x:Class="ddCrypt.Pages.Symmetric"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:ddCrypt.Pages"
+      mc:Ignorable="d" 
+      MinHeight="450" MinWidth="700" MaxWidth="700"
+      Title="Symmetric">
+
+    <Page.Resources>
+        <ResourceDictionary Source="/Dictionary.xaml" />
+    </Page.Resources>
+
+    <StackPanel>
+        <TabControl Margin="10">
+            <TabItem Header="AES" >
+                <ScrollViewer>
+                    <StackPanel Orientation="Vertical" Margin="30" ScrollViewer.VerticalScrollBarVisibility="Auto">
+                        <StackPanel HorizontalAlignment="Center">
+                            <TextBlock Text="AES" Style="{StaticResource ResourceKey=TextBlockTitle}"/>
+                        </StackPanel>
+                        <TextBlock Text="Your text(Text/Base64):" />
+                        <StackPanel Orientation="Horizontal">
+                            <ScrollViewer  VerticalAlignment="Center">
+                                <TextBox ScrollViewer.VerticalScrollBarVisibility="Auto"
+                                 Name="AESInputString" TextWrapping="Wrap" Width="568"/>
+                            </ScrollViewer>
+                            <Button Content="Файл" Name="AESuploadInputFile" Visibility="Hidden"
+                                Width="50" Margin="5 10 15 10"
+                                Click="AESuploadInputFile_Click"
+                                    Style="{StaticResource RoundConner}"/>
+                            <Button Content="X" Name="AESDeleteFile" Click="AESDeleteFile_Click"
+                                    Background="White" BorderThickness="0" Visibility="Hidden"/>
+                        </StackPanel>
+                        
+
+                        <StackPanel Orientation="Horizontal">
+
+                            <GroupBox Header="AES Crypto Mode" Width="150">
+                                <ComboBox Name="AESCryptMode">
+                                    <ComboBoxItem Content="CBC" IsSelected="True" />
+                                    <ComboBoxItem Content="CFB" />
+                                    
+                                    <ComboBoxItem Content="ECB" />
+                                </ComboBox>
+                            </GroupBox>
+
+                            <GroupBox Header="AES Key Size" Width="150">
+                                <ComboBox Name="AESKeySize">
+                                    <ComboBoxItem Content="128" IsSelected="True" />
+                                    <ComboBoxItem Content="192" />
+                                    <ComboBoxItem Content="256" />
+                                </ComboBox>
+                            </GroupBox>
+
+                        </StackPanel>
+
+                        <TextBlock Text="Key (Base64): " />
+
+                        <StackPanel Orientation="Horizontal">
+                            <TextBox Name="AESKeyTextBox" Width="566" Height="20" Text=""/>
+                            <Button Content="Файл" Name="AESuploadKeyFile"
+                                Width="50" Margin="0 10 15 10" Visibility="Hidden"
+                                Click="AESuploadKeyFile_Click"
+                                    Style="{StaticResource RoundConner}"/>
+                            <Button Content="X" Name="AESKeyDeleteFile" Click="AESKeyDeleteFile_Click"
+                                    Background="White" BorderThickness="0" Visibility="Hidden"/>
+                        </StackPanel>
+
+                        <TextBlock Text="IV (Base64): " />
+                        <StackPanel Orientation="Horizontal">
+                            <TextBox Name="AESIvTextBox" Width="570" Height="20"/>
+                            <Button Content="Файл" Name="AESuploadIvFile"
+                                Width="50" Margin="0 10 15 10"
+                                Click="AESuploadIvFile_Click" Visibility="Hidden"
+                                    Style="{StaticResource RoundConner}"/>
+                            <Button Content="X" Name="AESIvDeleteFile" Click="AESIvDeleteFile_Click"
+                                    Background="White" BorderThickness="0" Visibility="Hidden"/>
+                        </StackPanel>
+
+                        <TextBlock Text="Result (Base64):" />
+                        <ScrollViewer>
+                            <TextBox ScrollViewer.VerticalScrollBarVisibility="Auto"
+                                 TextWrapping="Wrap"
+                                 Name="AESResultString"/>
+                        </ScrollViewer>
+
+                        <StackPanel HorizontalAlignment="Left">
+                            <Button Name="AEScopyResultBox"
+                                    Background="White" BorderThickness="0"
+                                    Click="AEScopyResultBox_Click" Content="click copy">
+                            </Button>
+                        </StackPanel>
+
+                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                            <Button Content="Encrypt" Name="AESEncrypt"
+                                Width="200" Margin="0 10 15 10"
+                                Click="AESEncrypt_Click"
+                                    Style="{StaticResource RoundConner}"/>
+                            <Button Content="Decrypt" Name="AESDecrypt"
+                                Width="200" Margin="10 10 0 10"
+                                Click="AESDecrypt_Click"
+                                    Style="{StaticResource RoundConner}"/>
+                        </StackPanel>
+                    </StackPanel>
+                </ScrollViewer>
+            </TabItem>
+            <TabItem Header="DES" >
+                <ScrollViewer>
+                    <StackPanel Orientation="Vertical" Margin="30" ScrollViewer.VerticalScrollBarVisibility="Auto">
+                        <StackPanel HorizontalAlignment="Center">
+                            <TextBlock Text="DES" Style="{StaticResource ResourceKey=TextBlockTitle}"/>
+                        </StackPanel>
+                        <TextBlock Text="Your text(Text/Base64):" />
+                        <ScrollViewer>
+                            <TextBox ScrollViewer.VerticalScrollBarVisibility="Auto"
+                                 Name="DESInputString" TextWrapping="Wrap"/>
+                        </ScrollViewer>
+
+                        <StackPanel Orientation="Horizontal">
+
+                            <GroupBox Header="DES Crypto Mode" Width="150">
+                                <ComboBox Name="DESCryptoMode">
+                                    <ComboBoxItem Content="CBC" IsSelected="True" />
+                                    <ComboBoxItem Content="ECB" />
+                                </ComboBox>
+                            </GroupBox>
+
+                            <GroupBox Header="DES Key Size" Width="150">
+                                <ComboBox Name="DESKeySize">
+                                    <ComboBoxItem Content="56" IsSelected="True" />
+                                </ComboBox>
+                            </GroupBox>
+
+                        </StackPanel>
+
+                        <TextBlock Text="Key (Base64): " />
+
+                        <TextBox Name="DESKeyTextBox" />
+
+                        <TextBlock Text="IV (Base64): " />
+                        <TextBox Name="DESIvTextBox" />
+
+                        <TextBlock Text="Result (Base64):" />
+                        <ScrollViewer>
+                            <TextBox ScrollViewer.VerticalScrollBarVisibility="Auto"
+                                 TextWrapping="Wrap"
+                                 Name="DESresultString"/>
+                        </ScrollViewer>
+
+                        <StackPanel HorizontalAlignment="Left">
+                            <Button Name="DEScopyResultBox"
+                                    Background="White" BorderThickness="0"
+                                    Click="DEScopyResultBox_Click" Content="click copy">
+                            </Button>
+                        </StackPanel>
+
+                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                            <Button Content="Encrypt" Name="DESEncrypt"
+                                Width="200" Margin="0 10 15 10"
+                                Click="DESEncrypt_Click"
+                                    Style="{StaticResource RoundConner}"/>
+                            <Button Content="Decrypt" Name="DESDecrypt"
+                                Width="200" Margin="10 10 0 10"
+                                Click="DESDecrypt_Click" Style="{StaticResource RoundConner}"/>
+                        </StackPanel>
+                    </StackPanel>
+                </ScrollViewer>
+            </TabItem>
+        </TabControl>
+    </StackPanel>
+</Page>

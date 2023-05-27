@@ -1,0 +1,46 @@
+﻿<Page x:Class="ddCrypt.Pages.Hash"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:ddCrypt.Pages"
+      mc:Ignorable="d"
+      Title="Hash" Height="379" Width="616">
+
+    <StackPanel Background="White">
+
+        <StackPanel>
+            <TextBlock Text="Введите текст:" Margin="10 0"/>
+            <StackPanel Orientation="Horizontal">
+                <ScrollViewer Width="520">
+                    <TextBox ScrollViewer.VerticalScrollBarVisibility="Auto"
+                                 Name="textInput" TextWrapping="Wrap"/>
+                </ScrollViewer>
+                <Button x:Name="SelectFile" Click="FileHashButton_Click" Content="Выбрать файл" Width="89" Style="{StaticResource RoundConner}"/>
+            </StackPanel>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal">
+            <GroupBox Header="Hash Algorithm" Width="150">
+                <ComboBox x:Name="AlgorithmHash">
+                    <ComboBoxItem Content="SHA1" IsSelected="True" />
+                    <ComboBoxItem Content="SHA256" />
+                    <ComboBoxItem Content="SHA384" />
+                    <ComboBoxItem Content="SHA512" />
+                    <ComboBoxItem Content="MD5" />
+                </ComboBox>
+            </GroupBox>
+        </StackPanel>
+        <StackPanel>
+            <TextBlock Text="Полученный хэш:" Margin="10 0"/>
+            <ScrollViewer>
+                <TextBox ScrollViewer.VerticalScrollBarVisibility="Auto" TextWrapping="Wrap"
+                         Name="hashResultTextBlock"/>
+            </ScrollViewer>
+        </StackPanel>
+        <StackPanel>
+            <Button x:Name="textHashButton" Padding="10,5" Width="300"
+                Content="Вычислить хеш" Click="TextHashButton_Click"
+                    Style="{StaticResource RoundConner}"/>
+        </StackPanel>
+    </StackPanel>
+</Page>

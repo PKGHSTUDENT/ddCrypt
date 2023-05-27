@@ -1,0 +1,27 @@
+﻿<Window x:Class="ddCrypt.Window1"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ddCrypt"
+        mc:Ignorable="d"
+        Title="About program" Height="300" Width="500">
+    <StackPanel>
+        <TabControl>
+            <TabItem Header="EN">
+                <StackPanel>
+                    <TextBlock TextWrapping="Wrap">
+                        This program was created as a professional project and by direct submission to the Republic because there are other working alternatives that work better and are done specifically for data disclosure by experienced and professional developers/teams.
+                    </TextBlock>
+                </StackPanel>
+            </TabItem>
+            <TabItem Header="RU">
+                <StackPanel>
+                    <TextBlock TextWrapping="Wrap">
+                        Данная программа создана в качестве курсового проекта и по прямому назначению не должна использоваться, потому что есть другие рабочие альтернативы, которые работают лучше и сделаны специально для шифрования данных опытными и профессиональными разработчиками/командами.
+                    </TextBlock>
+                </StackPanel>
+            </TabItem>
+        </TabControl>
+    </StackPanel>
+</Window>

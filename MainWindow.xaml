@@ -1,0 +1,35 @@
+﻿<Window x:Class="ddCrypt.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ddCrypt"
+        mc:Ignorable="d"
+        MinHeight="700" MinWidth="900"
+        Title="ddCrypt" Height="700" Width="900" Icon="/logo.png">
+
+    <Window.Resources>
+        <ResourceDictionary Source="/Dictionary.xaml" />
+    </Window.Resources>
+
+    <DockPanel>
+        <Menu DockPanel.Dock="Top">
+            <MenuItem Header="Developer" Name="Developer" Click="Developer_Click"/>
+            <MenuItem Header="About" Name="AboutProgram"  Click="AboutProgram_Click"/>
+        </Menu>
+
+        <StackPanel Orientation="Horizontal" Width="900">
+            <StackPanel Name="NavButtons" Orientation="Vertical" VerticalAlignment="Top" HorizontalAlignment="Left" Width="100">
+                <TextBlock Text="Cipher" Padding="0 5 0 3" FontSize="20"></TextBlock>
+                <Button Name="SymmetricButton" Click="Symmetric_Click" Content="Symetric" Style="{StaticResource RoundConner}"/>
+                <Button Name="AsymmetricButton" Click="Asymmetric_Click" Content="Assymetric" Style="{StaticResource RoundConner}"/>
+                <TextBlock Text="Hash" Padding="0 5 0 3" FontSize="20"></TextBlock>
+                <Button Name="HashButton" Click="HashButton_Click" Content="Hash" Style="{StaticResource RoundConner}"/>
+            </StackPanel>
+            <StackPanel Name="StackPanelPagesFrame">
+                <Frame Name="PagesFrame" NavigationUIVisibility="Hidden" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch"/>
+            </StackPanel>
+        </StackPanel>
+
+    </DockPanel>
+</Window>
